@@ -1,0 +1,12 @@
+"Item1","Item2","Item3","Item4","Item5","Item6","Item7","Correct1","Correct2","Correct3","Correct4","Correct5","Correct6","Correct7","NCorrect"
+"brev","zink","best","lues","verb","lust","gods",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,7
+"brev","zink","best","lues","lust","gods","verb",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,7
+"brev","best","lues","","","","",TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,3
+"brev","zink","best","lues","verb","gods","",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,6
+"brev","zink","best","lues","gavel","val","",TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,4
+"brev","zink","best","lues","verb","=^u^=","gods",TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,6
+"brev","zink","best","lues","torg","borg","",TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,4
+"lues","verb","zink","tank","gods","last","avel",TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,4
+"brev","zink","best","lues","verb","lust","x",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,6
+"brev","verb","pest","lust","","","",TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,3
+"brev","zink","verb","lues","post","ord","!!!!!!! ",TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,4

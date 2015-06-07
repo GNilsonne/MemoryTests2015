@@ -1,0 +1,12 @@
+"Item1","Item2","Item3","Item4","Item5","Item6","Item7","Item8","Item9","Correct1","Correct2","Correct3","Correct4","Correct5","Correct6","Correct7","Correct8","Correct9","NCorrect"
+"oxid","axel ","fobi","visp","skoj","","","","",TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,4
+"oxid","axel","skoj","fobi","dyrk","ruin","visp","filt","onus",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,9
+"oxid","axel","ruin","skoj","filt","visp","onus","fobi","bord",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,8
+"oxid","axel","fobi","visp","onus","dyrk","skoj","?","?",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,7
+"oxid","axel","skoj","ruin","test","visp","dyrk","oro","",TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,6
+"oxis","axel","ruin","dyrk","onus","skoj","test","","",FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,5
+"oxid","axel","ruin","onus","fobi","dyrk","skoj","x","x",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,7
+"dyrk","fobi","axel","onus","skoj","ruin","","","",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,6
+"oxid","axel","dyrk","fobi","visp","orkan","","","",TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,5
+"oxid","axel","onus","ruin","dyrk","visp","kant","","",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,6
+"oxid","visp","axel","filt","fobi","dyrk","onus","skoj","",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,8

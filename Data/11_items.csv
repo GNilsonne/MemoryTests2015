@@ -1,0 +1,12 @@
+"Item1","Item2","Item3","Item4","Item5","Item6","Item7","Item8","Item9","Item10","Item11","Correct1","Correct2","Correct3","Correct4","Correct5","Correct6","Correct7","Correct8","Correct9","Correct10","Correct11","NCorrect"
+"pris","must","tabu","tukt","otid","last","sked","krus","scen","acne","drev",TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,10
+"pris","krus","acne","drev","scen","sked","must","tabu","last","","",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,9
+"scen","must","otid","lust","drev","acne","rost","","","","",TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,5
+"pris","must","acne","sked","","","","","","","",TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,4
+"krus","last","otid","pris","sork","tabu","","","","","",TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,5
+"pris","must","tabu","otid","scen","acne","drev","solk","","","",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,8
+"krus","scen","must","otid","acne","klippa","","","","","",TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,5
+"drev","solk","tabu","must","otid","acne","scen","","","","",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,7
+"solk","otid","sked","krus","drev","mast","","","","","",TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,5
+"","","tabu","otid","","","","krus","sked","acne","drev",FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,6
+"pris","must","krus","otid","solk","dygd","","","","","",TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,5

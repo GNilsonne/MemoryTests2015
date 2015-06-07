@@ -1,0 +1,29 @@
+Antal svar
+========================================================
+```{r, echo = FALSE}
+require(RCurl)
+url <- getURL("https://docs.google.com/spreadsheets/d/1F4tO743dqy1yc5A8II9WlgxucvpWzxMIitreLwDxRrY/export?format=csv", ssl.verifypeer = FALSE)
+data2 <- read.csv(textConnection(url), stringsAsFactors=FALSE)
+data2 <- data.frame(lapply(data2, function(v) {
+  if (is.character(v)) return(tolower(v))
+  else return(v)
+}))
+freq <- table(unlist(data2[, 2:8]))
+freqt <- data.frame(freq)
+names(freqt) <- c("Response", "Frequency")
+freqt <- freqt[rev(order(freqt[, 2])), ]
+print.data.frame(freqt, row.names = FALSE)
+```
+
+Korrekta svar
+========================================================
+```{r, echo = FALSE}
+correct2 <- c("brev", "verb", "zink", "best", "lues", "lust", "gods")
+data2[, 9:15] <- apply(data2[, 2:8], 2, function(x) x %in% correct2)
+data2[, 16] <- rowSums(data2[, 9:15])
+
+stripchart(data2[, 16], frame.plot = F, pch = 16, col = "red", vertical = TRUE, yaxt = "n", ylim = c(0, 7), method = "stack", main = "Minnestest, 7 ord", offset = 1)
+axis(2, at = c(1, 3, 5, 7))
+points(mean(data2[, 16]), pch = "-", cex = 3)
+
+```

@@ -1,0 +1,12 @@
+"Item1","Item2","Item3","Item4","Item5","Correct1","Correct2","Correct3","Correct4","Correct5","NCorrect"
+"port","avel","ozon ","taxi","tics",TRUE,TRUE,FALSE,TRUE,TRUE,4
+"port","avel","ozon","taxi","tics",TRUE,TRUE,TRUE,TRUE,TRUE,5
+"port","avel","ozon","taxi","tics",TRUE,TRUE,TRUE,TRUE,TRUE,5
+"port","avel","ozon","taxi","tics",TRUE,TRUE,TRUE,TRUE,TRUE,5
+"port","avel","ozon","taxi","tics",TRUE,TRUE,TRUE,TRUE,TRUE,5
+"port","avel","ozon","","",TRUE,TRUE,TRUE,FALSE,FALSE,3
+"port","avel","ozon","taxi","tics",TRUE,TRUE,TRUE,TRUE,TRUE,5
+"port","avel","ozon","taxi","tics",TRUE,TRUE,TRUE,TRUE,TRUE,5
+"port","avel","ozon","taxi","tics",TRUE,TRUE,TRUE,TRUE,TRUE,5
+"port","avel","taxi","tics","telefon",TRUE,TRUE,TRUE,TRUE,FALSE,4
+"port","avel","ozon","taxi","tics",TRUE,TRUE,TRUE,TRUE,TRUE,5

@@ -1,0 +1,84 @@
+Antal svar
+========================================================
+```{r, echo = FALSE}
+require(RCurl)
+url <- getURL("https://docs.google.com/spreadsheets/d/1zDNus5n02fV2-avq5cCuj__aMoLVS-R7MKmjyQOwrUQ/export?format=csv", ssl.verifypeer = FALSE)
+data <- read.csv(textConnection(url), stringsAsFactors=FALSE)
+data <- data.frame(lapply(data, function(v) {
+  if (is.character(v)) return(tolower(v))
+  else return(v)
+}))
+freq <- table(unlist(data[, 2:12]))
+freqt <- data.frame(freq)
+names(freqt) <- c("Response", "Frequency")
+freqt <- freqt[rev(order(freqt[, 2])), ]
+print.data.frame(freqt, row.names = FALSE)
+
+```
+
+Korrekta svar
+========================================================
+```{r, echo = FALSE}
+correct <- c("pris", "must", "tabu", "solk", "otid", "last", "sked", "krus", "scen", "acne", "drev")
+data[, 13:23] <- apply(data[, 2:12], 2, function(x) x %in% correct)
+data[, 24] <- rowSums(data[, 13:23])
+
+stripchart(data[, 24], frame.plot = F, pch = 16, col = "red", vertical = TRUE, yaxt = "n", ylim = c(0, 11), method = "stack", main = "Minnestest, 11 ord", offset = 1)
+axis(2, at = c(1, 3, 5, 7, 9, 11))
+points(mean(data[, 24]), pch = "-", cex = 3)
+
+```
+
+Andel korrekta svar per antal ord
+========================================================
+
+```{r, echo = FALSE}
+require(RCurl)
+url <- getURL("https://docs.google.com/spreadsheets/d/1VwnxQYYDPXFJdEMieKp-bygY_pIgpfuNmxk9firZGGU/export?format=csv", ssl.verifypeer = FALSE)
+data <- read.csv(textConnection(url), stringsAsFactors=FALSE)
+data <- data.frame(lapply(data, function(v) {
+  if (is.character(v)) return(tolower(v))
+  else return(v)
+}))
+correct <- c("port", "avel", "ozon", "taxi", "tics")
+data[, 7:11] <- apply(data[, 2:6], 2, function(x) x %in% correct)
+data[, 12] <- rowSums(data[, 7:11])
+frac_correct_5 <- mean(data[, 12])/5
+
+url <- getURL("https://docs.google.com/spreadsheets/d/1F4tO743dqy1yc5A8II9WlgxucvpWzxMIitreLwDxRrY/export?format=csv", ssl.verifypeer = FALSE)
+data2 <- read.csv(textConnection(url), stringsAsFactors=FALSE)
+data2 <- data.frame(lapply(data2, function(v) {
+  if (is.character(v)) return(tolower(v))
+  else return(v)
+}))
+correct2 <- c("brev", "verb", "zink", "best", "lues", "lust", "gods")
+data2[, 9:15] <- apply(data2[, 2:8], 2, function(x) x %in% correct2)
+data2[, 16] <- rowSums(data2[, 9:15])
+frac_correct_7 <- mean(data2[, 16])/7
+
+url <- getURL("https://docs.google.com/spreadsheets/d/1J-2q0UGhahDHs6gtzfk30Tfv3t0YgYcZK92sdV3yINU/export?format=csv", ssl.verifypeer = FALSE)
+data <- read.csv(textConnection(url), stringsAsFactors=FALSE)
+data <- data.frame(lapply(data, function(v) {
+  if (is.character(v)) return(tolower(v))
+  else return(v)
+}))
+correct <- c("oxid", "axel", "ruin", "skoj", "fobi", "dyrk", "visp", "filt", "onus")
+data[, 11:19] <- apply(data[, 2:10], 2, function(x) x %in% correct)
+data[, 20] <- rowSums(data[, 11:19])
+frac_correct_9 <- mean(data[, 20])/9
+
+url <- getURL("https://docs.google.com/spreadsheets/d/1zDNus5n02fV2-avq5cCuj__aMoLVS-R7MKmjyQOwrUQ/export?format=csv", ssl.verifypeer = FALSE)
+data <- read.csv(textConnection(url), stringsAsFactors=FALSE)
+data <- data.frame(lapply(data, function(v) {
+  if (is.character(v)) return(tolower(v))
+  else return(v)
+}))
+correct <- c("pris", "must", "tabu", "solk", "otid", "last", "sked", "krus", "scen", "acne", "drev")
+data[, 13:23] <- apply(data[, 2:12], 2, function(x) x %in% correct)
+data[, 24] <- rowSums(data[, 13:23])
+frac_correct_11 <- mean(data[, 24])/11
+
+plot(c(5, 7, 9, 11), c(frac_correct_5, frac_correct_7, frac_correct_9, frac_correct_11), frame.plot = F, ylim = c(0, 1), type = "b", cex = 1, xlab = "Antal ord", ylab = "Andel korrekta svar", pch = 16, xaxt = "n")
+axis(1, at = c(5, 7, 9, 11))
+
+```

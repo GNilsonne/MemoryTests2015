@@ -1,0 +1,53 @@
+Antal svar
+========================================================
+```{r, echo = FALSE}
+require(RCurl)
+url <- getURL("https://docs.google.com/spreadsheets/d/1J-2q0UGhahDHs6gtzfk30Tfv3t0YgYcZK92sdV3yINU/export?format=csv", ssl.verifypeer = FALSE)
+data <- read.csv(textConnection(url), stringsAsFactors=FALSE)
+data <- data.frame(lapply(data, function(v) {
+  if (is.character(v)) return(tolower(v))
+  else return(v)
+}))
+freq <- table(unlist(data[, 2:10]))
+freqt <- data.frame(freq)
+names(freqt) <- c("Response", "Frequency")
+freqt <- freqt[rev(order(freqt[, 2])), ]
+print.data.frame(freqt, row.names = FALSE)
+
+```
+
+Korrekta svar
+========================================================
+```{r, echo = FALSE}
+correct <- c("oxid", "axel", "ruin", "skoj", "fobi", "dyrk", "visp", "filt", "onus")
+data[, 11:19] <- apply(data[, 2:10], 2, function(x) x %in% correct)
+data[, 20] <- rowSums(data[, 11:19])
+
+stripchart(data[, 20], frame.plot = F, pch = 16, col = "red", vertical = TRUE, yaxt = "n", ylim = c(0, 9), method = "stack", main = "Minnestest, 9 ord", offset = 1)
+axis(2, at = c(1, 3, 5, 7, 9))
+points(mean(data[, 20]), pch = "-", cex = 3)
+
+```
+
+11 ord
+========================================================
+
+- Pris
+- Must
+- Tabu
+- Solk
+- Otid
+- Last
+- Sked
+- Krus
+- Scen
+- Acne
+- Drev
+
+Fundera
+========================================================
+22*39
+
+Skriv in orden
+========================================================
+Minnestest - 11 ord

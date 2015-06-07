@@ -1,0 +1,53 @@
+Korrekta svar
+========================================================
+```{r, echo = FALSE}
+require(RCurl)
+url <- getURL("https://docs.google.com/spreadsheets/d/1326a4e9MyqOpbtRGcduJfQKZ-EFCXSbw4FdZpmf1YcM/export?format=csv", ssl.verifypeer = FALSE)
+data <- read.csv(textConnection(url), stringsAsFactors=FALSE)
+data$Q1 <- ifelse(data[, 2] == "Ja", 1, 0)
+data$Q2 <- ifelse(data[, 3] == "Nej", 1, 0)
+data$Q3 <- ifelse(data[, 4] == "Ja", 1, 0)
+data$Q4 <- ifelse(data[, 5] == "Ja", 1, 0)
+data$Q5 <- ifelse(data[, 6] == "Nej", 1, 0)
+data$Q6 <- ifelse(data[, 7] == "Ja", 1, 0)
+data$Q7 <- ifelse(data[, 8] == "Ja", 1, 0)
+data$Q8 <- ifelse(data[, 9] == "Nej", 1, 0)
+data$Q9 <- ifelse(data[, 10] == "Nej", 1, 0)
+data$Q10 <- ifelse(data[, 12] == "Nej", 1, 0)
+data$Q11 <- ifelse(data[, 13] == "Nej", 1, 0)
+data$Q12 <- ifelse(data[, 14] == "Nej", 1, 0)
+data$Q13 <- ifelse(data[, 15] == "Ja", 1, 0)
+data$Q14 <- ifelse(data[, 16] == "Nej", 1, 0)
+data$Q15 <- ifelse(data[, 17] == "Ja", 1, 0)
+data$Q16 <- ifelse(data[, 18] == "Nej", 1, 0)
+data$Q17 <- ifelse(data[, 19] == "Nej", 1, 0)
+data$Q18 <- ifelse(data[, 20] == "Ja", 1, 0)
+data$Q19 <- ifelse(data[, 21] == "Nej", 1, 0)
+data$Q20 <- ifelse(data[, 22] == "Ja", 1, 0)
+data$Q21 <- ifelse(data[, 23] == "Ja", 1, 0)
+data$Q22 <- ifelse(data[, 24] == "Ja", 1, 0)
+data$Q23 <- ifelse(data[, 25] == "Ja", 1, 0)
+data$Q24 <- ifelse(data[, 26] == "Ja", 1, 0)
+data$Q25 <- ifelse(data[, 27] == "Nej", 1, 0)
+data$Q26 <- ifelse(data[, 28] == "Ja", 1, 0)
+data$Q27 <- ifelse(data[, 29] == "Nej", 1, 0)
+data$Q28 <- ifelse(data[, 30] == "Nej", 1, 0)
+data$Q29 <- ifelse(data[, 31] == "Ja", 1, 0)
+data$Q30 <- ifelse(data[, 31] == "Ja", 1, 0)
+
+data$seen <- (data$Q1 + data$Q3 + data$Q4 + data$Q6 + data$Q7 + data$Q13 + data$Q15 + data$Q18 + data$Q20 + data$Q21 + data$Q22 + data$Q23 + data$Q24 + data$Q26 + data$Q29 + data$Q30)/16
+data$unconsolidated <- (data$Q3 + data$Q4 + data$Q13 + data$Q15 + data$Q18 + data$Q20 + data$Q23 + data$Q30)/8
+data$consolidated <- (data$Q1 + data$Q6 + data$Q7 + data$Q21 + data$Q22 + data$Q24 + data$Q26 + data$Q29)/8
+data$unseen <- (data$Q2 + data$Q5 + data$Q8 + data$Q9 + data$Q10 + data$Q11 + data$Q12 + data$Q14 + data$Q16 + data$Q17 + data$Q19 + data$Q25 + data$Q27 + data$Q28)/14
+
+plot(c(1, 2, 3), c(0, 1, 1), frame.plot = F, xaxt = "n", xlab = "", ylab = "Andel korrekta svar", type = "n", main = "Minnestest bilder, 11 personers svar")
+axis(1, at = c(1, 2, 3), labels = c("En visning", "Två visningar", "Ingen visning"))
+for (i in 1:length(data[, 1])){
+  lines(x = c(1, 2, 3), y = data[i, c("unconsolidated", "consolidated", "unseen")], col = "lightblue")
+}
+lines(x = c(1, 2, 3), y = c(mean(data$unconsolidated), mean(data$consolidated), mean(data$unseen)), lwd = 2)
+text(1, 0.8, labels = round(mean(data$unconsolidated), 2))
+text(2, 1, labels = round(mean(data$consolidated), 2))
+text(3, 0.8, labels = round(mean(data$unseen), 2))
+
+```

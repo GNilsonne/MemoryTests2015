@@ -1,0 +1,48 @@
+Antal svar
+========================================================
+```{r, echo = FALSE}
+require(RCurl)
+url <- getURL("https://docs.google.com/spreadsheets/d/1VwnxQYYDPXFJdEMieKp-bygY_pIgpfuNmxk9firZGGU/export?format=csv", ssl.verifypeer = FALSE)
+data <- read.csv(textConnection(url), stringsAsFactors=FALSE)
+data <- data.frame(lapply(data, function(v) {
+  if (is.character(v)) return(tolower(v))
+  else return(v)
+}))
+freq <- table(unlist(data[, 2:6]))
+freqt <- data.frame(freq)
+names(freqt) <- c("Response", "Frequency")
+freqt <- freqt[rev(order(freqt[, 2])), ]
+print.data.frame(freqt, row.names = FALSE)
+
+```
+
+Korrekta svar
+========================================================
+```{r, echo = FALSE}
+correct <- c("port", "avel", "ozon", "taxi", "tics")
+data[, 7:11] <- apply(data[, 2:6], 2, function(x) x %in% correct)
+data[, 12] <- rowSums(data[, 7:11])
+
+stripchart(data[, 12], frame.plot = F, pch = 16, col = "red", vertical = TRUE, yaxt = "n", ylim = c(0, 5), method = "stack", main = "Minnestest, 5 ord", offset = 1)
+axis(2, at = c(1, 2, 3, 4, 5))
+points(mean(data[, 12]), pch = "-", cex = 3)
+
+```
+
+7 ord
+========================================================
+- Brev
+- Zink
+- Best
+- Lues
+- Verb
+- Lust
+- Gods
+
+Fundera
+========================================================
+23*34
+
+Skriv in orden
+========================================================
+Minnestest - 7 ord
